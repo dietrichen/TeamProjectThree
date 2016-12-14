@@ -18,7 +18,8 @@ public class ShootingScript : NetworkBehaviour
 
 	void Update ()
 	{
-
+		if (Input.GetButtonDown ("Fire2"))
+			CmdHitPlayer (gameObject);
 
 		if (Input.GetButtonDown ("Fire1")) {
 			_muzzleFlash.Stop ();
@@ -35,10 +36,15 @@ public class ShootingScript : NetworkBehaviour
 				_impactEffect.Play ();
 
 				if (hit.transform.tag == "Player") {
-					Destroy (hit.transform.gameObject);
+					CmdHitPlayer (hit.transform.gameObject);
 				}
 			}
 		}
 	}
-		
+
+	[Command]
+	void CmdHitPlayer (GameObject hit)
+	{
+		hit.GetComponent<NetworkedPlayerScript> ().RpcResolveHit ();
+	}
 }
