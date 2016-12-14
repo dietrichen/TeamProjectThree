@@ -18,9 +18,6 @@ public class ShootingScript : NetworkBehaviour
 
 	void Update ()
 	{
-		if (Input.GetButtonDown ("Fire2"))
-			CmdHitPlayer (gameObject);
-
 		if (Input.GetButtonDown ("Fire1")) {
 			_muzzleFlash.Stop ();
 			_muzzleFlash.Play ();

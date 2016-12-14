@@ -1,13 +1,9 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
-using UnityStandardAssets.Characters.FirstPerson;
-
 
 public class NetworkedPlayerScript : NetworkBehaviour
 {
-	
-	public FirstPersonController fpsController;
+	public UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpsController;
 	public Camera fpsCamera;
 	public AudioListener audioListener;
 	public ShootingScript shootingScript;
